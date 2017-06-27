@@ -1,9 +1,14 @@
-package fr.alainmuller.yamamoto
+package fr.alainmuller.yamamoto.ui.forecast
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import fr.alainmuller.yamamoto.R
+import fr.alainmuller.yamamoto.network.forecast.ForecastRequest
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.longToast
+import org.jetbrains.anko.uiThread
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,5 +28,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         forecast_list.layoutManager = LinearLayoutManager(this)
         forecast_list.adapter = ForecastListAdapter(items)
+
+        val url = "http://api.openweathermap.org/data/2.5/forecast/daily?APPID=15646a06818f61f7b8d7823ca833e1ce&q=94043&mode=json&units=metric&cnt=7"
+
+        doAsync {
+            ForecastRequest(url).run()
+            uiThread { longToast("Request performed") }
+        }
+
     }
 }

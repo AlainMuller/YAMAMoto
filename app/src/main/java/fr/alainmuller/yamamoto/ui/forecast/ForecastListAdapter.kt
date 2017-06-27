@@ -1,4 +1,4 @@
-package fr.alainmuller.yamamoto
+package fr.alainmuller.yamamoto.ui.forecast
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
