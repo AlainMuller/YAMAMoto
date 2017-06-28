@@ -1,0 +1,2 @@
+json_key_file "/Users/amuller/perso/dev/android/Google\ Play\ Android\ Developer-2bb1fa402489.json" # Path to the json secret file - Follow https://github.com/fastlane/supply#setup to get one
+package_name "fr.alainmuller.yamamoto" # e.g. com.krausefx.app
