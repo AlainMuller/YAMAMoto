@@ -6,6 +6,6 @@ import java.net.URL
 class ForecastRequest(val url: String) {
     fun run() {
         val forecastJsonStr = URL(url).readText()
-        Log.d(javaClass.simpleName, "requested forecase : '$forecastJsonStr'")
+        Log.d(javaClass.simpleName, "requested forecast : '$forecastJsonStr'")
     }
 }

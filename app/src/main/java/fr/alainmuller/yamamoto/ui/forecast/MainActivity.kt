@@ -1,8 +1,9 @@
 package fr.alainmuller.yamamoto.ui.forecast
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import fr.alainmuller.yamamoto.R
 import fr.alainmuller.yamamoto.network.forecast.ForecastRequest
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        forecast_list.layoutManager = LinearLayoutManager(this)
+        forecast_list.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
         forecast_list.adapter = ForecastListAdapter(items)
 
         val url = "http://api.openweathermap.org/data/2.5/forecast/daily?APPID=15646a06818f61f7b8d7823ca833e1ce&q=94043&mode=json&units=metric&cnt=7"
